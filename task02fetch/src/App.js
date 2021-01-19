@@ -14,13 +14,23 @@ class App extends Component {
       const data = await response.json();
       this.setState({
         loading: false,
-
         people: data
       })
     }
 
+      handleDelete = (event) =>{
+          console.log(event + 'event')
+          const temp = this.state.people;
+          temp.splice(event,1);
+      this.setState({
+        people: temp
+      })
+
+      // this.handleDelete = this.handleDelete.bind(this);
+    }
+
   render(){
-    console.log(this.state.people)
+        // console.log(this.state.people)
       return (
         <div className="App">
         {this.state.loading || !this.state.people ? (<div> Loading </div> ) :
@@ -28,7 +38,9 @@ class App extends Component {
               {
                   this.state.people.map((el, ind)=>{
                     return(
-                      <Person id = {el.id } title = {el.title} text = {el.body} />
+                      <div key = {ind}>
+                      <Person key = {this.ind} id = {el.id } title = {el.title} text = {el.body} delete = {() => this.handleDelete(ind)}/>
+                      </div>
                     )
                   })
               }
