@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './person.css'
 
 const Person = (props) => {
@@ -8,6 +8,8 @@ const Person = (props) => {
         <h5> {props.title}</h5>
         <h6> {props.text}</h6>
         <button onClick = {props.delete}>Delete</button>
+        <input  onChange = />
+        <button onClick = {props.add}>Add Text</button>
     </div>
   )
 }

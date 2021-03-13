@@ -25,9 +25,15 @@ class App extends Component {
       this.setState({
         people: temp
       })
-
-      // this.handleDelete = this.handleDelete.bind(this);
+  // this.handleDelete = this.handleDelete.bind(this);
     }
+    handleAdd = (event) =>{
+      
+    this.setState({
+      people: temp
+    })
+// this.handleDelete = this.handleDelete.bind(this);
+  }
 
   render(){
         // console.log(this.state.people)
@@ -39,7 +45,8 @@ class App extends Component {
                   this.state.people.map((el, ind)=>{
                     return(
                       <div key = {ind}>
-                      <Person key = {this.ind} id = {el.id } title = {el.title} text = {el.body} delete = {() => this.handleDelete(ind)}/>
+                      <Person key = {this.ind} id = {el.id } title = {el.title} text = {el.body}
+                       delete = {() => this.handleDelete(ind)}  add = {() => this.handleAdd(ind)}/>
                       </div>
                     )
                   })
